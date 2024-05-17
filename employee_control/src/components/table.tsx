@@ -13,6 +13,7 @@ export interface HeaderItemProps{
 }
 
 export interface BodyItemProps{
+    data: any,
     rows: {
         item: any,
         headerPropName: string
@@ -22,8 +23,8 @@ export interface BodyItemProps{
 export interface ButtonActionsProps{
     enable: boolean,
     text?: string,
-    onEdit: (item: any) => void,
-    onDelete: (item: any) => void
+    onEdit: (data: any) => void,
+    onDelete: (data: any) => void
 }
 
 
@@ -96,13 +97,13 @@ export default function TableDefault({
                                 ?   <Td>
                                         <Stack spacing={5} direction="row">
                                             <IconButton 
-                                                onClick={(event) => ButtonActions.onEdit(itemData)}
+                                                onClick={(event) => ButtonActions.onEdit(itemData.data)}
                                                 aria-label="edit"
                                             >
                                                 <MdEditDocument />
                                             </IconButton>
                                             <IconButton 
-                                                onClick={(event) => ButtonActions.onDelete(itemData)}
+                                                onClick={(event) => ButtonActions.onDelete(itemData.data)}
                                                 aria-label="delete"
                                             >
                                                 <MdDeleteForever />
