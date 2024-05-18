@@ -6,7 +6,7 @@ export default interface Employee{
     name: string,
     wage: number,
     office: string,
-    entryDate: Date | string,
+    entryDate?: Date | string,
     birthday?: Date | string,
-    departureDate?: Date
+    departureDate?: Date | string
 }

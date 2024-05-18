@@ -10,10 +10,14 @@ export type ExmployeeListingServiceProps = Pick<Employee, "id">;
 export default class ExmployeeListingService implements IService<Employee[]>{
     static url: string = "/employees"
 
+    private handleData(data: any[]){
+        return data.map(item => ({...item, id: item._id}))
+    }
+
     async execute(): Promise<Employee[]> {
         const { data } =  await api.get(ExmployeeListingService.url);
 
-        return data.data;
+        return this.handleData(data.data);
     }
     
 }

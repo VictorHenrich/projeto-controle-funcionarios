@@ -69,14 +69,24 @@ export default function TableDefault({
                     <Tr>
                         {header.map((data, index) => {
                             return (
-                                <Th key={index}>
+                                <Th 
+                                    key={index}
+                                    fontSize={15}
+                                    color="primary"
+                                >
                                     {data.item}
                                 </Th>
                             );
                         })}
                         {
                             ButtonActions.enable
-                                ? <Th textAlign="center">Ações</Th>
+                                ? <Th 
+                                    textAlign="center" 
+                                    fontSize={15}
+                                    color="primary"
+                                    >
+                                        Ações
+                                    </Th>
                                 : null
                         }
                     </Tr>
@@ -88,23 +98,35 @@ export default function TableDefault({
                             {
                                 itemData.rows.map((row, index) => {
                                     return (
-                                        <Td key={index}>{row.item}</Td>
+                                        <Td 
+                                            key={index}
+                                        >
+                                            {row.item}
+                                        </Td>
                                     )
                                 })
                             }
                             {
                             ButtonActions.enable
                                 ?   <Td>
-                                        <Stack spacing={5} direction="row">
+                                        <Stack 
+                                            spacing={5} 
+                                            direction="row"
+                                            justifyContent="center"
+                                        >
                                             <IconButton 
                                                 onClick={(event) => ButtonActions.onEdit(itemData.data)}
                                                 aria-label="edit"
+                                                fontSize={30}
+                                                color="primary"
                                             >
                                                 <MdEditDocument />
                                             </IconButton>
                                             <IconButton 
                                                 onClick={(event) => ButtonActions.onDelete(itemData.data)}
                                                 aria-label="delete"
+                                                fontSize={30}
+                                                color="red"
                                             >
                                                 <MdDeleteForever />
                                             </IconButton>
